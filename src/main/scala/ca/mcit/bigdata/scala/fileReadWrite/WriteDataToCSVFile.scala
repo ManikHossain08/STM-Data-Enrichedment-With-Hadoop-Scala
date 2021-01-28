@@ -1,12 +1,12 @@
 package ca.mcit.bigdata.scala.fileReadWrite
 
-import ca.mcit.bigdata.scala.dataModel.{CalendarDate, Calender, Route, Trips}
+import ca.mcit.bigdata.scala.dataModel.{Calender, Route, Trips}
 import ca.mcit.bigdata.scala.dataEnrichment.{EnrichedTrip, TripRoute}
 import java.io.{BufferedWriter, File, FileWriter}
 
 
 class WriteDataToCSVFile() {
-  val csvSchema = s"trip_id,route_id,service_id,trip_head_sign,wheelchairAccessible," +
+  val csvSchema: String = s"trip_id,route_id,service_id,trip_head_sign,wheelchairAccessible," +
     "long_route_name,route_color,monday,tuesday,wednesday,thursday,friday,saturday,sunday,start_date,end_date\n"
 
   def writeFile(filename: String): Unit = {
@@ -15,7 +15,7 @@ class WriteDataToCSVFile() {
     val bw = new BufferedWriter(new FileWriter(file))
     bw.write(csvSchema)
 
-    val enrichedTrips = EnrichedTrip.getEnrichedTripsList()
+    val enrichedTrips = EnrichedTrip.getEnrichedTripsList
     enrichedTrips.foreach {
       case EnrichedTrip(TripRoute(Trips(tripId, serviceId, routeId, tripHeadSign, wheelChairAccessible),
       Some(Route(_, longRouteName, routeColor))),
