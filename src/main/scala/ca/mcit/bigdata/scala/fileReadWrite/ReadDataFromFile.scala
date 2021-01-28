@@ -15,60 +15,44 @@ object ReadDataFromFile {
     stopList
   }
 
-  def getCalendarDateList(fileName: String): mutable.MutableList[CalendarDate] = {
-    val calendarDateList = new scala.collection.mutable.MutableList[CalendarDate]
+  def getCalendarDateList(fileName: String): List[CalendarDate] = {
     val (source, lineIterator) = getIteratorAndBufferedSource(fileName)
-    while (lineIterator.hasNext) {
-      println(lineIterator.next())
-      calendarDateList += List(lineIterator.next()).map(line => CalendarDate(line)).head
-    }
+    val calendarDateList = lineIterator.map(line => CalendarDate(line)).toList
     source.close()
     calendarDateList
   }
 
-  def getRouteList(fileName: String): mutable.MutableList[Route] = {
-    val routeList = new scala.collection.mutable.MutableList[Route]
+  def getRouteList(fileName: String): List[Route] = {
     val (source, lineIterator) = getIteratorAndBufferedSource(fileName)
-    while (lineIterator.hasNext) {
-      routeList += List(lineIterator.next()).map(line => Route(line)).head
-    }
+    val routeList = lineIterator.map(line => Route(line)).toList
     source.close()
     routeList
   }
 
-  def getStopTimeList(fileName: String): mutable.MutableList[StopTime] = {
-    val StopTimeList = new scala.collection.mutable.MutableList[StopTime]
+  def getStopTimeList(fileName: String): List[StopTime] = {
     val (source, lineIterator) = getIteratorAndBufferedSource(fileName)
-    while (lineIterator.hasNext) {
-      StopTimeList += List(lineIterator.next()).map(line => StopTime(line)).head
-    }
+    val StopTimeList = lineIterator.map(line => StopTime(line)).toList
     source.close()
     StopTimeList
   }
 
-  def getTripList(fileName: String): mutable.MutableList[Trips] = {
-    val tripsList = new scala.collection.mutable.MutableList[Trips]
+  def getTripList(fileName: String): List[Trips] = {
     val (source, lineIterator) = getIteratorAndBufferedSource(fileName)
-    while (lineIterator.hasNext) {
-      tripsList += List(lineIterator.next()).map(line => Trips(line)).head
-    }
+    val tripsList = lineIterator.map(line => Trips(line)).toList
     source.close()
     tripsList
   }
 
-  def getCalenderList(fileName: String): mutable.MutableList[Calender] = {
-    val calenderList = new scala.collection.mutable.MutableList[Calender]
+  def getCalenderList(fileName: String): List[Calender] = {
     val (source, lineIterator) = getIteratorAndBufferedSource(fileName)
-    while (lineIterator.hasNext) {
-      calenderList += List(lineIterator.next()).map(line => Calender(line)).head
-    }
+    val calenderList = lineIterator.map(line => Calender(line)).toList
     source.close()
     calenderList
   }
 
   def getIteratorAndBufferedSource(fileName: String): (BufferedSource, Iterator[String]) = {
     val source: BufferedSource = Source.fromFile(fileName)
-    val lineIterator: Iterator[String] = source.getLines().drop(1) // skip header by drop
+    val lineIterator: Iterator[String] = source.getLines().drop(1) // skip header by drop(1)
     (source, lineIterator)
   }
 }

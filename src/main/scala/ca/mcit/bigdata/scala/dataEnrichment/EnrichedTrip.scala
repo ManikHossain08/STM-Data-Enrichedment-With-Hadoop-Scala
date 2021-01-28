@@ -8,9 +8,9 @@ case class EnrichedTrip(tripRoute: TripRoute, calendarDate: Option[Calender])
 
 object EnrichedTrip {
   def getEnrichedTripsList: List[EnrichedTrip] = {
-    val calender = ReadDataFromFile.getCalenderList(IOFileLinks.calender).toList
-    val trips = ReadDataFromFile.getTripList(IOFileLinks.trips).toList
-    val routes = ReadDataFromFile.getRouteList(IOFileLinks.routes).toList
+    val calender = ReadDataFromFile.getCalenderList(IOFileLinks.calender)
+    val trips = ReadDataFromFile.getTripList(IOFileLinks.trips)
+    val routes = ReadDataFromFile.getRouteList(IOFileLinks.routes)
     val tripRoute = RelationalJoin.LeftJoinTripRoute(trips, routes)
     val enrichedTrips: List[EnrichedTrip] = RelationalJoin.LeftJoinEnrichedTrip(tripRoute, calender)
 
