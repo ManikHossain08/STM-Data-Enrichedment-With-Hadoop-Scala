@@ -1,6 +1,6 @@
 package ca.mcit.bigdata.scala.client
 
-import ca.mcit.bigdata.scala.fileWriting.{DataWriteToCSVFile, IOFileLinks}
+import ca.mcit.bigdata.scala.fileReadWrite.{WriteDataToCSVFile, IOFileLinks}
 
 /**
  * @author Manik Hossain
@@ -9,7 +9,6 @@ import ca.mcit.bigdata.scala.fileWriting.{DataWriteToCSVFile, IOFileLinks}
  */
 
 object AppClient extends App {
-  val enrichedTrips = new DataWriteToCSVFile()
+  val enrichedTrips = new WriteDataToCSVFile()
   enrichedTrips.writeFile(IOFileLinks.enrichedTripOutput)
-
 }

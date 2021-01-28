@@ -13,12 +13,7 @@ case class Stop(stopId: String,
                 wheelChairBoarding: Int)
 
 object Stop {
-  def apply(fileName: String): List[Stop] = {
-    val schemaObjList = ObjectCollection.getDataFromSource(fileName, convertStringDataToTripsObject)
-    schemaObjList
-  }
-
-  def convertStringDataToTripsObject[T](line: String): Stop = {
+  def apply(line: String): Stop = {
     val fields: Array[String] = line.split(",", -1)
     Stop(fields(0), fields(2), fields(3).toDouble, fields(4).toDouble, fields(8).toInt)
   }

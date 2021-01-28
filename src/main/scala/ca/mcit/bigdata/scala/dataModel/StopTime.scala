@@ -13,12 +13,7 @@ case class StopTime(tripId: String,
                     stopSequence: Int)
 
 object StopTime {
-  def apply(fileName: String): mutable.MutableList[StopTime] = {
-    val schemaObjList = ObjectCollection.getDataFromSourceUsingIterator(fileName, convertStringDataToStopTimeObject)
-    schemaObjList
-  }
-
-  def convertStringDataToStopTimeObject(line: String): StopTime = {
+  def apply(line: String): StopTime = {
     val fields: Array[String] = line.split(",", -1)
     StopTime(fields(0), fields(3), fields(4).toInt)
   }

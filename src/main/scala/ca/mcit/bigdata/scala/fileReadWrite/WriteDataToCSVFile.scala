@@ -1,11 +1,11 @@
-package ca.mcit.bigdata.scala.fileWriting
+package ca.mcit.bigdata.scala.fileReadWrite
 
 import ca.mcit.bigdata.scala.dataModel.{CalendarDate, Route, Trips}
 import ca.mcit.bigdata.scala.dataEnrichment.{EnrichedTrip, TripRoute}
 
 import java.io.{BufferedWriter, File, FileWriter}
 
-class DataWriteToCSVFile() {
+class WriteDataToCSVFile() {
   val csvSchema = s"trip_id,route_id,service_id,trip_head_sign,wheelchairAccessible,long_route_name,route_color,date,exceptionType\n"
 
   def writeFile(filename: String): Unit = {

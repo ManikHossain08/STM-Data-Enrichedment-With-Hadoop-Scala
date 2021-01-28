@@ -1,4 +1,4 @@
-package ca.mcit.bigdata.scala.fileWriting
+package ca.mcit.bigdata.scala.fileReadWrite
 
 /**
  * @author Manik Hossain

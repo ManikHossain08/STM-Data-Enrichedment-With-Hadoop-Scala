@@ -11,12 +11,7 @@ case class Route(routeId: Int,
                  routeColor: String)
 
 object Route {
-  def apply(fileName: String): List[Route] = {
-    val schemaObjList = ObjectCollection.getDataFromSource(fileName, convertStringDataToRouteObject)
-    schemaObjList
-  }
-
-  def convertStringDataToRouteObject(line: String): Route = {
+  def apply(line: String): Route = {
     val fields: Array[String] = line.split(",", -1)
     Route(fields(0).toInt, fields(3), fields(6))
   }
