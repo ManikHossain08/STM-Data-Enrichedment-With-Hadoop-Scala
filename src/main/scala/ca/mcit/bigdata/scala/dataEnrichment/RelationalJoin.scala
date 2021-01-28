@@ -1,6 +1,6 @@
 package ca.mcit.bigdata.scala.dataEnrichment
 
-import ca.mcit.bigdata.scala.dataModel.{CalendarDate, Route, Trips}
+import ca.mcit.bigdata.scala.dataModel.{CalendarDate, Calender, Route, Trips}
 
 
 object RelationalJoin {
@@ -9,16 +9,18 @@ object RelationalJoin {
     a.map(tripRoute =>
       if (lookup.contains(tripRoute.routeId.toInt))
         TripRoute(tripRoute, Some(lookup(tripRoute.routeId.toInt)))
-      else TripRoute(tripRoute, None)
+      else
+        TripRoute(tripRoute, None)
     )
   }
 
-  def LeftJoinEnrichedTrip(a: List[TripRoute], b: List[CalendarDate]): List[EnrichedTrip] = {
-    val lookup: Map[String, CalendarDate] = b.map(calendarDate => calendarDate.serviceId -> calendarDate).toMap
+  def LeftJoinEnrichedTrip(a: List[TripRoute], b: List[Calender]): List[EnrichedTrip] = {
+    val lookup: Map[String, Calender] = b.map(calendar => calendar.serviceId -> calendar).toMap
     a.map(enrichedTrips =>
       if (lookup.contains(enrichedTrips.trips.serviceId))
         EnrichedTrip(enrichedTrips, Some(lookup(enrichedTrips.trips.serviceId)))
-      else EnrichedTrip(enrichedTrips, None)
+      else
+        EnrichedTrip(enrichedTrips, None)
     )
   }
 }

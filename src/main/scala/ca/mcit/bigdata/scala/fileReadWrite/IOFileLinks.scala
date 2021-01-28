@@ -8,6 +8,7 @@ package ca.mcit.bigdata.scala.fileReadWrite
 
 object IOFileLinks {
   val trips = "/Users/manikhossain/IdeaProjects/inheritence-assignment/STM-Data/trips.txt"
+  val calender = "/Users/manikhossain/IdeaProjects/inheritence-assignment/STM-Data/calendar.txt"
   val calendarDate = "/Users/manikhossain/IdeaProjects/inheritence-assignment/STM-Data/calendar_dates.txt"
   val routes = "/Users/manikhossain/IdeaProjects/inheritence-assignment/STM-Data/routes.txt"
   val stopTime = "/Users/manikhossain/IdeaProjects/inheritence-assignment/STM-Data/stop_times.txt"

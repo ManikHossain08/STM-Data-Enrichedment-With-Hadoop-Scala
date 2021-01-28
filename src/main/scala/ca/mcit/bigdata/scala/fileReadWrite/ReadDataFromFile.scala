@@ -1,7 +1,6 @@
 package ca.mcit.bigdata.scala.fileReadWrite
 
-import ca.mcit.bigdata.scala.dataModel.{CalendarDate, Route, Stop, StopTime, Trips}
-
+import ca.mcit.bigdata.scala.dataModel.{CalendarDate, Calender, Route, Stop, StopTime, Trips}
 import scala.collection.mutable
 import scala.io.{BufferedSource, Source}
 
@@ -66,4 +65,15 @@ object ReadDataFromFile {
     tripsList
   }
 
+  def getCalenderList(fileName: String): mutable.MutableList[Calender] = {
+    val calenderList = new scala.collection.mutable.MutableList[Calender]
+    val source: BufferedSource = Source.fromFile(fileName)
+    val lineIterator: Iterator[String] = source.getLines()
+    lineIterator.next() // skip header
+    while (lineIterator.hasNext) {
+      calenderList += List(lineIterator.next()).map(line => Calender(line)).head
+    }
+    source.close()
+    calenderList
+  }
 }
