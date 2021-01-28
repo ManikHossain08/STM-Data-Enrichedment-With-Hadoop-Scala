@@ -1,10 +1,10 @@
-package ca.mcit.bigdata.data.writing.scala
+package ca.mcit.bigdata.file.writing.scala
 
-import ca.mcit.bigdata.data.modelling.scala.{EnrichedTrip, TripRoute}
+import ca.mcit.bigdata.data.enrichment.scala.{EnrichedTrip, TripRoute}
 import ca.mcit.bigdata.schema.scala.{CalendarDate, Route, Trips}
 import java.io.{BufferedWriter, File, FileWriter}
 
-class DataWriteToCSV() {
+class DataWriteToCSVFile() {
   val csvSchema = s"trip_id,route_id,service_id,trip_head_sign,wheelchairAccessible,long_route_name,route_color,date,exceptionType\n"
 
   def writeFile(filename: String): Unit = {

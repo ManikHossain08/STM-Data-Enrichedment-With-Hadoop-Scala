@@ -1,4 +1,4 @@
-package ca.mcit.bigdata.data.writing.scala
+package ca.mcit.bigdata.file.writing.scala
 
 /**
  * @author Manik Hossain

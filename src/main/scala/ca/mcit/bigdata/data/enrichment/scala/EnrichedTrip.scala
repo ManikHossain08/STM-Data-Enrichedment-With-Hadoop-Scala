@@ -1,10 +1,8 @@
-package ca.mcit.bigdata.data.modelling.scala
+package ca.mcit.bigdata.data.enrichment.scala
 
-import ca.mcit.bigdata.data.writing.scala.IOFileLinks
+import ca.mcit.bigdata.file.writing.scala.IOFileLinks
 import ca.mcit.bigdata.schema.scala.{CalendarDate, Route, Trips}
 
-
-case class TripRoute(trips: Trips, route: Option[Route])
 
 case class EnrichedTrip(tripRoute: TripRoute, calendarDate: Option[CalendarDate])
 
