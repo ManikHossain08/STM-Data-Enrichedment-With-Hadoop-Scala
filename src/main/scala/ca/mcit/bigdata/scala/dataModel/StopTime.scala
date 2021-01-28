@@ -1,7 +1,5 @@
 package ca.mcit.bigdata.scala.dataModel
 
-import scala.collection.mutable
-
 /**
  * @author Manik Hossain
  * @version 1.0.0

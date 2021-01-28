@@ -1,6 +1,6 @@
 package ca.mcit.bigdata.scala.dataEnrichment
 
-import ca.mcit.bigdata.scala.dataModel.{CalendarDate, Calender, Route, Trips}
+import ca.mcit.bigdata.scala.dataModel.{Calender, Route, Trips}
 
 
 object RelationalJoin {
